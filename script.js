@@ -7,12 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                // Dejar de observar una vez que ya se mostró
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1, // Se activa cuando el 10% del elemento es visible
+        threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
     });
 
@@ -20,15 +19,38 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 
-    // 2. Manejo del formulario de contacto (Simulación)
+    // 2. Lógica del Acordeón de Preguntas Frecuentes (FAQ)
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Cerrar todos los elementos abiertos
+            faqItems.forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.faq-answer').style.maxHeight = null;
+            });
+
+            // Abrir el elemento clickeado si no estaba activo
+            if (!isActive) {
+                item.classList.add('active');
+                const answer = item.querySelector('.faq-answer');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // 3. Manejo del formulario de contacto (Simulación)
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Evita que la página se recargue
+            e.preventDefault(); 
             
-            // Simular envío de datos
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
@@ -36,16 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
 
             setTimeout(() => {
-                // Mostrar mensaje de éxito
                 formMessage.textContent = '¡Gracias! Un asesor de Mikronet Fibra te contactará pronto.';
-                formMessage.style.color = '#10b981'; // Verde éxito
+                formMessage.style.color = '#10b981';
                 
-                // Resetear formulario
                 contactForm.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
 
-                // Ocultar mensaje después de 5 segundos
                 setTimeout(() => {
                     formMessage.textContent = '';
                 }, 5000);
@@ -53,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Efecto de scroll en el header (cambiar sombra)
+    // 4. Efecto de scroll en el header
     const header = document.querySelector('.header');
     
     window.addEventListener('scroll', () => {
