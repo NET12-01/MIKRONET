@@ -25,7 +25,9 @@
             <nav class="nav">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#planes">Planes</a></li>
+                    <li><a href="#cobertura">Cobertura</a></li>
                     <li><a href="#testimonios">Testimonios</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contacto">Contacto</a></li>
@@ -38,11 +40,34 @@
     <!-- Sección Hero -->
     <section id="inicio" class="hero">
         <div class="container hero-content">
+            <div class="promo-badge">¡PROMO DE LANZAMIENTO! 3 MESES AL 50% + INSTALACIÓN GRATIS</div>
             <h1>Conecta tu mundo con la <span>Velocidad de la Luz</span></h1>
             <p>Disfruta de la mejor experiencia en streaming, gaming y teletrabajo con la red de fibra óptica más estable de la región.</p>
             <div class="hero-buttons">
                 <a href="#planes" class="btn btn-primary">Ver Planes</a>
                 <a href="#contacto" class="btn btn-outline">Contactar Soporte</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="nosotros" class="about section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text animate-on-scroll">
+                    <h2>Más que un proveedor, somos tu conexión local</h2>
+                    <p>En <strong>Mikronet Fibra</strong> somos una empresa local apasionada por la tecnología. Nacimos con el objetivo de brindar un servicio de internet que realmente funcione: sin caídas constantes, sin soporte lento y sin letras chiquitas.</p>
+                    <p>Invertimos constantemente en infraestructura de fibra óptica de última generación para garantizar que tu hogar o empresa tenga la velocidad que prometemos. Nuestro equipo técnico está en tu barrio, listo para ayudarte cuando lo necesites.</p>
+                    <ul class="about-list">
+                        <li><i class="fa-solid fa-check-circle"></i> Infraestructura 100% Fibra Óptica</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Soporte técnico local y rápido</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Compromiso con la comunidad</li>
+                    </ul>
+                </div>
+                <div class="about-image animate-on-scroll">
+                    <!-- Imagen de referencia de servidores/tecnología -->
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Infraestructura de red Mikronet">
+                </div>
             </div>
         </div>
     </section>
@@ -111,6 +136,37 @@
                     </div>
                     <div class="plan-footer">
                         <a href="#contacto" class="btn btn-plan">Solicitar Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Mapa de Cobertura -->
+    <section id="cobertura" class="coverage section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Verifica nuestra Cobertura</h2>
+                <p>Consulta si nuestra red de fibra óptica llega a tu domicilio.</p>
+            </div>
+            <div class="coverage-wrapper">
+                <div class="coverage-info animate-on-scroll">
+                    <h3>¿Llegamos a tu zona?</h3>
+                    <p>Actualmente contamos con cobertura en varias zonas de la ciudad. Ingresa tu dirección para verificar disponibilidad técnica.</p>
+                    <form id="coverageForm" class="coverage-form">
+                        <div class="form-group">
+                            <input type="text" id="addressInput" placeholder="Ingresa tu calle y número" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Verificar Disponibilidad</button>
+                        <p id="coverageMessage" class="coverage-message"></p>
+                    </form>
+                </div>
+                <div class="coverage-map animate-on-scroll">
+                    <!-- Placeholder de Mapa. Puedes reemplazar esto con un iframe real de Google Maps -->
+                    <div class="map-placeholder">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <p>Mapa de Cobertura Mikronet</p>
+                        <span>Zona Norte, Centro y Sur</span>
                     </div>
                 </div>
             </div>
