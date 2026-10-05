@@ -124,7 +124,7 @@ body {
 .nav ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav a {
@@ -190,14 +190,10 @@ body {
 }
 
 /* =========================================
-   PLANS SECTION
+   SECCIONES GENERALES
    ========================================= */
 .section {
     padding: 100px 0;
-}
-
-.plans {
-    background-color: var(--bg-light);
 }
 
 .section-title {
@@ -214,6 +210,13 @@ body {
 .section-title p {
     color: var(--text-light);
     font-size: 1.1rem;
+}
+
+/* =========================================
+   PLANS SECTION
+   ========================================= */
+.plans {
+    background-color: var(--bg-light);
 }
 
 .plans-grid {
@@ -341,6 +344,117 @@ body {
 .btn-plan:hover {
     background: var(--primary-blue);
     color: var(--white);
+}
+
+/* =========================================
+   TESTIMONIOS
+   ========================================= */
+.testimonials {
+    background-color: var(--white);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 4px solid var(--light-blue);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.stars {
+    color: #fbbf24;
+    margin-bottom: 15px;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.testimonial-author strong {
+    display: block;
+    color: var(--dark-blue);
+}
+
+.testimonial-author span {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* =========================================
+   PREGUNTAS FRECUENTES (FAQ)
+   ========================================= */
+.faq {
+    background-color: var(--bg-light);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--white);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    color: var(--primary-blue);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+    color: var(--light-blue);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f1f5f9;
+}
+
+.faq-answer p {
+    padding: 20px;
+    color: var(--text-light);
+    margin: 0;
 }
 
 /* =========================================
@@ -479,6 +593,41 @@ body {
 }
 
 /* =========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+    color: #FFF;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* =========================================
    ANIMACIONES Y RESPONSIVE
    ========================================= */
 .animate-on-scroll {
@@ -497,6 +646,7 @@ body {
     .contact-wrapper { grid-template-columns: 1fr; }
     .plan-card.featured { transform: scale(1); }
     .plan-card.featured:hover { transform: translateY(-10px); }
+    .nav ul { gap: 15px; }
 }
 
 @media (max-width: 768px) {
@@ -506,4 +656,5 @@ body {
     .hero-buttons { flex-direction: column; }
     .section { padding: 60px 0; }
     .plans-grid { grid-template-columns: 1fr; }
+    .whatsapp-float { width: 50px; height: 50px; font-size: 25px; bottom: 20px; right: 20px; }
 }
