@@ -43,7 +43,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Manejo del formulario de contacto (Simulación)
+    // 3. Simulación de Verificación de Cobertura
+    const coverageForm = document.getElementById('coverageForm');
+    const coverageMessage = document.getElementById('coverageMessage');
+
+    if (coverageForm) {
+        coverageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const addressInput = document.getElementById('addressInput').value;
+            
+            coverageMessage.textContent = 'Verificando disponibilidad...';
+            coverageMessage.style.color = 'var(--text-light)';
+
+            setTimeout(() => {
+                // Simulación: Si la dirección tiene menos de 5 caracteres, decimos que no hay cobertura.
+                // En la vida real, aquí conectarías con una API o base de datos.
+                if (addressInput.length > 5) {
+                    coverageMessage.textContent = '¡Buenas noticias! Tenemos cobertura en tu zona. Un asesor te contactará.';
+                    coverageMessage.style.color = '#10b981'; // Verde
+                } else {
+                    coverageMessage.textContent = 'Lo sentimos, por el momento no tenemos cobertura en esa dirección.';
+                    coverageMessage.style.color = '#ef4444'; // Rojo
+                }
+                coverageForm.reset();
+            }, 1500);
+        });
+    }
+
+    // 4. Manejo del formulario de contacto (Simulación)
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
@@ -72,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Efecto de scroll en el header
+    // 5. Efecto de scroll en el header
     const header = document.querySelector('.header');
     
     window.addEventListener('scroll', () => {
